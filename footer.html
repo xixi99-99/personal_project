@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>footer</title>
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Google font */
+        @import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Chocolate Classical Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .footer {
+            width: 100%;
+            /* height: 20vh; */
+            background-color: #EEEEE7;
+
+            /* 貼齊底部 */
+            /* margin-bottom: -10px; */
+            padding-bottom: 10px;
+        }
+
+        .footerContiner {
+            margin: 80px 10vw;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .footerContiner>a>h5 {
+            font-family: "Homemade Apple", serif;
+            font-size: 3em;
+            margin-top: 5vh;
+        }
+
+        .content {
+            margin-top: 5vh;
+            color: #5E5039;
+        }
+
+        .content>h3 {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .content>h5 {
+            margin-bottom: 10px;
+            padding-left: 2vw;
+        }
+
+        .socialMediaContainer>i {
+            padding-left: 1vw;
+        }
+
+
+        .line:hover {
+            color: #77a96b;
+            cursor: pointer;
+        }
+
+        .ig:hover {
+            color: #9f3b63;
+            cursor: pointer;
+
+        }
+
+        .fb:hover {
+            color: #5081C1;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width:651px) and (max-width:1000px) {
+            .footerContiner {
+                margin: 10px 5vw;
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .footerContiner {
+                display: block;
+            }
+
+            .footerContiner>a>h5 {
+                display: none;
+            }
+
+            .content {
+                margin: 0;
+                padding-top: 20px;
+                /* background-color: lightblue; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="footer">
+
+        <div class="footerContiner">
+
+            <a href="homepage.html">
+                <h5>Didn</h5>
+            </a>
+
+            <div class="content" id="contact">
+                <h3>▎Contact Us</h3>
+                <h5>營業時間 : Mon-Fri 9:00~16:00</h5>
+                <h5>連絡電話 : 04-1234-1234</h5>
+                <h5>地址: 台中市西區黑皮大道一段99號8樓</h5>
+            </div>
+            <div class="content">
+                <h3>▎Info</h3>
+                <h5>Membership</h5>
+                <h5>Delivery</h5>
+                <h5>Q&A</h5>
+            </div>
+
+            <div class="content">
+                <h3>▎Follow Us</h3>
+
+                <div class="socialMediaContainer" onclick="toline()">
+                    <i class="line fa-brands fa-line fa-2x"></i>
+                    <i class="ig fa-brands fa-instagram fa-2x" onclick="toig()"></i>
+                    <i class="fb fa-brands fa-facebook fa-2x" onclick="tofb()"></i>
+                </div>
+
+            </div>
+
+            <!-- <h5>99© 九九股份有限公司, All Rights Reserved.</h5> -->
+        </div>
+
+
+
+        <script>
+            // function toline() {
+            //     window.open('https://page.line.me/jwv3010k')
+            // }
+
+            function toig() {
+                window.open('https://www.instagram.com/explore/locations/610933542/-/')
+            }
+
+            function tofb() {
+                window.open('https://www.facebook.com/IIIDEITc/?locale=zh_TW')
+            }
+        </script>
+
+</body>
+
+</html>

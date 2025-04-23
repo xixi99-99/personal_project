@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Googlt font title */
+        @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Chocolate Classical Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .headerContainer {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+        }
+
+        nav {
+            width: 100%;
+            height: 9vh;
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* background: linear-gradient(to bottom, rgb(238, 238, 231, 90%),rgb(238, 238, 231, 0%)); */
+            background-color: rgb(238, 238, 231, 80%);
+            z-index: 1;
+            background-color: light;
+        }
+
+        nav>a {
+            color: black;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .logoContainer {
+            display: flex;
+            align-items: center;
+            font-family: "Homemade Apple", serif;
+            font-weight: 600;
+            font-style: bold;
+            font-size: 24px;
+            margin-left: 5vw;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu>li {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .menu>li>a {
+            text-decoration: none;
+            color: black;
+            margin-right: 20px;
+
+            &:hover {
+                color: #B2A994;
+                text-decoration: underline 2px #B2A994;
+                text-underline-offset: 8px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        .cart {
+            margin-right: 5vw;
+            position: relative;
+
+            &:hover {
+                color: #B2A994;
+                transform: scale(1.3);
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        /* 購物車數字 */
+        .cart+span {
+            background-color: rgb(178, 169, 148);
+            color: #5E5039;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            /* display: none; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2px;
+            position: absolute;
+            right: 40px;
+            bottom: 3px;
+            /* top: 0; */
+        }
+
+        /* log in */
+        .loginBtn {
+            padding: 20px;
+
+            &:hover {
+                color: #B2A994;
+                text-decoration: underline 2px #B2A994;
+                text-underline-offset: 8px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        .login {
+            display: none;
+            /* display: flex; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            /* background: rgba(0, 0, 0, 0.5); */
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            z-index: 1;
+
+        }
+
+        .login-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInSlide 0.8s ease-in-out;
+            /* gap: 10px; */
+            width: 300px;
+        }
+
+        /* .close+h2 {
+            margin-bottom: 10px;
+        } */
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #B2A994;
+        }
+
+        .tab.active {
+            /* border-bottom: 2px solid #5E5039; */
+            color: #5E5039;
+        }
+
+        .form-container {
+            display: none;
+            width: 100%;
+            margin-top: 1vh;
+        }
+
+        .form-container.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        .loginInput {
+            width: 70%;
+            padding: 8px;
+            margin: 5px 0;
+            /* border: 1px solid #ccc; */
+            border: none;
+            border-radius: 4px;
+            text-align: left;
+            box-shadow: inset 1px 1px 3px 1px lightgray;
+        }
+
+        .input:focus {
+            outline: 1px solid #B2A994;
+        }
+
+        .submitBtn {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #B2A994;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+
+            &:hover {
+                background: #5E5039;
+                color: white;
+                transform: scale(1.03);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5E5039;
+        }
+
+        /* login淡入淡出 */
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 漢堡選單 */
+        .menu-button {
+            color: #B2A994;
+            /* background-color: rgb(94, 80, 57, 70%); */
+            background-color: transparent;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            /* border-radius: 5px; */
+            margin-right: 5vw;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                color: #5E5039;
+                transform: scale(1.05);
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .menu-button {
+                display: flex;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+
+        /* 背景 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            /* background: rgba(0, 0, 0, 0.5); */
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            /* display: flex; */
+            justify-content: flex-end;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 漢堡選單內容 */
+        .hidden-menu {
+            position: relative;
+            border-radius: 8px 0 0 8px;
+            background-color: #EEEEE7;
+            padding: 5%;
+            width: 30vw;
+            text-align: left;
+            max-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            animation: slidemenu 0.5s ease-out;
+            box-shadow: -3px 0px 10px rgb(85, 83, 83);
+
+        }
+
+        .closeMenuBtn {
+            position: absolute;
+            top: 5vh;
+            right: 5vw;
+            cursor: pointer;
+        }
+
+        .hidden-menu>ul {
+            position: absolute;
+            top: 10vh;
+            list-style: none;
+            padding: 0;
+        }
+
+        .hidden-menu>ul>li {
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover {
+                color: #B2A994;
+                text-decoration: underline 2px #B2A994;
+                text-underline-offset: 8px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        .hidden-menu>ul>li>a {
+            text-decoration: none;
+            color: black;
+
+            &:hover {
+                color: #B2A994;
+                text-decoration: underline 2px #B2A994;
+                text-underline-offset: 8px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        /* 調整login & cart */
+        .hidden-menu>div {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: -50vh;
+        }
+
+        .hidden-menu>div>h5 {
+            &:hover {
+                color: #B2A994;
+                text-decoration: underline 2px #B2A994;
+                text-underline-offset: 8px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        @keyframes slidemenu {
+            from {
+                transform: translateX(200%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="headerContainer">
+        <nav>
+            <a href="homepage.html" class="logoContainer">
+                Didn
+            </a>
+
+            <ul class="menu">
+                <!-- <li><a href="homepage.html">HOME</a></li> -->
+                <li><a href="./productlist.html">PRODUCTS</a></li>
+                <li><a href="homepage.html#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li class="loginBtn" onclick="openLogin()">LOGIN</li>
+                <a class="cart" href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <!-- <span>10</span> -->
+
+            </ul>
+            <button class="menu-button" onclick="openMenu()"><i class="fa-solid fa-bars"></i></button>
+        </nav>
+
+    </div>
+
+
+    <!-- login 介面 -->
+    <div id="login" class="login">
+        <div class="login-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('loginForm')">Login</div>
+                <div class="tab" onclick="switchTab('registerForm')">Register</div>
+            </div>
+
+            <div id="loginForm" class="form-container active">
+                <input type="text" placeholder="Username or Email" class="loginInput">
+                <input type="password" placeholder="Password" class="loginInput">
+                <button class="submitBtn" onclick="loginOk()">Submit</button>
+            </div>
+
+            <div id="registerForm" class="form-container">
+                <input type="text" placeholder="Full Name" class="loginInput">
+                <input type="email" placeholder="Email" class="loginInput">
+                <input type="password" placeholder="Password" class="loginInput">
+                <input type="password" placeholder="Confirm Password" class="loginInput">
+                <button class="submitBtn" onclick="submitOk()">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 漢堡選單內容 -->
+    <div class="overlay" id="overlay">
+        <div class="hidden-menu">
+            <span class="closeMenuBtn" onclick="closeMenu()">✖</span>
+            <ul>
+                <li><a href="../homepage.html">HOME</a></li>
+                <li><a href="../productlist.html">PRODUCTS</a></li>
+                <li><a href="homepage.html#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+
+            <div>
+                <h5 class="loginBtn" onclick="closeMenu();openLogin()">Login</h5>
+                <a class="cart" href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        // login page
+        // function openLogin() {
+        //     document.getElementById("login").style.display = "flex";
+        // }
+
+        // function closeLogin() {
+        //     document.getElementById("login").style.display = "none";
+        // }
+
+        // function switchTab(tabId) {
+        //     document.querySelectorAll(".form-container").forEach(el => el.classList.remove("active"));
+        //     document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
+        //     document.getElementById(tabId).classList.add("active");
+        //     document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add("active");
+        // }
+
+        // 漢堡選單
+        // function openMenu() {
+        //     document.getElementById("overlay").style.display = "flex";
+        //     // document.body.style.background = "rgba(0,0,0,0.2)";
+        //     document.getElementsByClassName("hidden-menu").style.right = "0";
+        // }
+
+        // function closeMenu() {
+        //     document.getElementById("overlay").style.display = "none";
+        // }
+    </script>
+</body>
+
+</html>

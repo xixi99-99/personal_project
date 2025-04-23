@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車_gpt</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopping Cart</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="./script.js"></script>
+
+    </head>
+
+    <body>
+        <!-- header -->
+        <header id="header"></header>
+
+        <!-- Shopping Cart Section -->
+        <div class="cart-container">
+            <h2>購物車</h2>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="./img/2. 轉檔圖片/產品圖 (2).png" alt="product name">
+                    <div class="item-details">
+                        <h5>積雪草彈潤修護乳</h5>
+                        <p>$880</p>
+                        <div class="quantity-control">
+                            <button class="decrease">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="increase">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+
+                <div class="cart-item">
+                    <img src="./img/2. 轉檔圖片/產品圖 (3).png" alt="product name">
+                    <div class="item-details">
+                        <h5>維他命B3調理精華</h5>
+                        <p>$780</p>
+                        <div class="quantity-control">
+                            <button class="decrease">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="increase">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+
+                <div class="cart-item">
+                    <img src="./img/2. 轉檔圖片/產品圖 (4).png" alt="product name">
+                    <div class="item-details">
+                        <h5>金盞花舒緩保濕面膜</h5>
+                        <p>$430</p>
+                        <div class="quantity-control">
+                            <button class="decrease">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="increase">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+
+            </div>
+
+            <!-- Order Summary -->
+            <div class="cart-summary">
+                <p>小計: <span>$2090</span></p>
+                <!-- <p>折扣: <span>$0</span></p> -->
+                <p>總計: <span>$2090</span></p>
+                <button class="checkout">結帳</button>
+            </div>
+            <a href="../productlist.html" class="continue-shopping">繼續購物</a>
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"></footer>
+    </body>
+
+    </html>

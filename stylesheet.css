@@ -1,0 +1,806 @@
+/* 字體 */
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap');
+
+
+/* All */
+/* All */
+/* All */
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans TC,Lato", sans-serif;
+    /* font-family: "Chocolate Classical Sans", serif; */
+    font-weight: 400;
+    font-style: normal;
+    -webkit-text-size-adjust: 100%
+}
+
+/* scroll animation for homepage & product page */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+        scale: 1;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        scale: 1;
+    }
+}
+
+.scroll {
+    animation: appear 2s ease-out;
+    /* 元素出現時animation效果才會呈現, 但元素離開效果才會完成(因為沒有duration time) */
+    animation-timeline: view();
+    /* 讓元素出現時就呈現animation效果, 元素出現40%時完成animation */
+    animation-range: entry 0 cover 50%;
+}
+
+
+/* homepage */
+/* homepage */
+/* homepage */
+
+/* homepage section 1 輪播圖 */
+.hp1SlideContainer {
+    position: relative;
+    /* max-width: 600px; */
+    margin: auto;
+    margin-top: 9vh;
+    overflow: hidden;
+    max-height: 90vh;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+}
+
+.slide>img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.active-slide {
+    opacity: 1;
+    position: relative;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    bottom: -10px;
+    transform: translateY(50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.prev {
+    left: 5px;
+}
+
+.next {
+    right: 5px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.dot {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.active-dot {
+    color: rgba(237, 234, 234, 0.9);
+}
+
+
+
+/* Homepage section 2 */
+.hp2 {
+    margin: 100px 80px;
+}
+
+.hp2Container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.hp2Title {
+    width: 30%;
+    justify-content: end;
+    text-align: end;
+    margin-top: 50px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.hp2Title>h5 {
+    font-size: 2em;
+    margin-bottom: 10%;
+}
+
+/* 調整卡片群組 */
+.hp2CardGroup {
+    display: flex;
+    justify-content: flex-start;
+    /* 自動換行以適應不同螢幕寬度  */
+    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
+    gap: 50px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    /* 滾動時自動對齊 */
+}
+
+.hp2CardGroup::-webkit-scrollbar {
+    display: none;
+}
+
+.hp2CardGroup.active {
+    cursor: grabbing;
+    /* user-select: none; */
+    opacity: 0.9;
+}
+
+.hp2Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* transition: transform 0.3s ease; */
+    min-width: 200px;
+    /* height: 120%; */
+    flex-shrink: 0;
+    gap: 20px;
+    padding: 5%;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+}
+
+
+/* 調整卡片內容 */
+.hp2Cardimg {
+    width: 200px;
+    border-radius: 5px;
+}
+
+/* .hp2Product {
+    text-align: center;
+} */
+
+/* .hp2Price {
+    text-align: center;
+} */
+
+/* 小螢幕排版調整 */
+
+@media screen and (min-width:651px) and (max-width:1000px) {
+    .hp2Card {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .hp2 {
+        margin: 5% 5%;
+    }
+
+    .hp2Container {
+        display: block;
+    }
+
+    .hp2Title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hp2CardGroup {
+        justify-content: center;
+    }
+}
+
+/* Homepage section 3 */
+.hp3 {
+    margin: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.hp3>div {
+    width: 40%;
+    /* transition: all 0.3s ease-in-out; */
+    /* opacity: 0; */
+    /* transition: all 0.5s ease-out; */
+}
+
+.hp3img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.hp3ContentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    text-align: end;
+    gap: 20px;
+    position: relative;
+}
+
+
+/* 調整按鈕樣式 */
+.hp3btn {
+    text-align: right;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #B2A994;
+    color: #5E5039;
+    padding: 10px 5px;
+    width: fit-content;
+    white-space: nowrap;
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: #eeeee7;
+    }
+}
+
+/* 小螢幕排版調整 */
+@media screen and (max-width:650px) {
+    .hp3 {
+        /* flex-direction: column; */
+        /* gap: 20px; */
+        bottom: 0;
+        /* color: white; */
+    }
+
+    .hp3>div {
+        width: 100%;
+    }
+
+    .hp3img {
+        /* filter: grayscale(30%); */
+        /* opacity: 0.8; */
+        filter: brightness(80%);
+    }
+
+    .hp3ContentContainer {
+        position: fixed;
+        left: 0;
+        color: white;
+        /* text-shadow: 2px 2px 2px white; */
+    }
+
+    .hp3btn {
+        border: 1px solid white;
+        color: white;
+        /* text-shadow: 2px 2px 2px white; */
+    }
+
+}
+
+.totop {
+    position: fixed;
+    bottom: 20%;
+    right: 5%;
+    animation: appear 2s ease-in-out;
+    display: none;
+    /* display: block; */
+}
+
+.totop>a {
+    color: rgb(94, 80, 57, 50%);
+    width: 100%;
+}
+
+
+
+
+/* Product List */
+/* Product List */
+/* Product List */
+
+/* Product List section 1 */
+
+/* section 1 */
+.pl1 {
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    margin: 20vh 10px 10px 10px;
+}
+
+/* 淡入transition effect */
+
+
+.pl1tabGroup {
+    /* border: 1px black solid; */
+    /* box-shadow: 2px 2px 2px lightgray; */
+    box-shadow: inset 2px 2px 6px 2px lightgray;
+    border-radius: 5px;
+    /* align-self: flex-start; */
+    padding: 20px;
+    margin-left: 10vw;
+    width: 100px;
+    white-space: nowrap;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+}
+
+.pl1tab {
+    margin-bottom: 20px;
+
+    /* text-align: justify; */
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        color: #b7a66b;
+    }
+}
+
+.pl1card {
+    text-align: center;
+}
+
+.pl1card>a>img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+/* tab effect */
+/* .pl1tabGroup>.show {
+} */
+
+.pl1contentArea {
+    margin-left: 25vw;
+}
+
+.pl1contentArea>.show {
+    display: flex;
+    justify-content: left;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-right: 10vw;
+}
+
+.pl1content {
+    display: none;
+}
+
+.pl1content.show {
+    animation: fadeInSlide 2s ease-in-out forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 小螢幕排版調整 */
+/* 螢幕 450 or 650 ~ 1000px  and >1000 */
+@media screen and (min-width:651px) and (max-width:1000px) {
+    .pl1tabGroup {
+        margin-left: 5vw;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .pl1contentArea {
+        margin-left: 30vw;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .pl1 {
+        display: block;
+
+    }
+
+    .pl1tabGroup {
+        /* position: relative; */
+        /* white-space: wrap; */
+        display: flex;
+        margin: 15vh 5vw 5vh 2vw;
+        position: relative;
+        width: 70vw;
+        min-width: 300px;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        /* padding: 5px; */
+    }
+
+    .pl1contentArea {
+        margin: 20px 0 0 5vw;
+    }
+
+    .pl1tab {
+        margin-bottom: 0;
+        /* font-size: 0.5em; */
+    }
+
+    .pl1content.show {
+        gap: 20px;
+    }
+
+    .pl1card {
+        width: 40%;
+    }
+
+    .pl1card>a>img {
+        width: 80%
+    }
+}
+
+
+
+/* PRODUCT PAGE */
+/* PRODUCT PAGE */
+/* PRODUCT PAGE */
+
+/* Product Page section 1 */
+.pp1 {
+    margin: 20vh 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.pp1>div>img {
+    height: auto;
+    max-width: 40vw;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px gray;
+}
+
+.pp1ContentContainer {
+    margin-top: 10px;
+    margin: 10px 0 0 5%;
+    width: 40vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pp1ContentContainer>hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.pp1btnContainer {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+.pp1btnContainer>h3 {
+    font-weight: 600;
+    color: #806c4d;
+}
+
+.pp1btnContainer>button {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0;
+}
+
+.pp1btnContainer>button:hover {
+    transform: scale(1.02);
+
+}
+
+.pp1btnContainer>img {
+    vertical-align: middle;
+}
+
+/* 小螢幕調整 */
+/* @media screen and (min-width:651px) and (max-width:950px) {
+
+} */
+
+@media screen and (max-width:650px) {
+    .pp1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pp1btnContainer {
+        display: block;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .pp1btnContainer>h3 {
+        margin-bottom: 10%;
+    }
+}
+
+/* Product Page section 2 */
+.pp2 {
+    margin: 60px 80px;
+}
+
+.pp2tabGroup {
+    display: flex;
+    gap: 1px;
+    border-bottom: 1px solid #5E5039;
+}
+
+.pp2tab {
+    padding: 15px 15px 15px 0;
+    font-size: large;
+    font-weight: bold;
+    color: #B2A994;
+}
+
+.pp2tab:hover {
+    transform: scale(1.08);
+}
+
+/* 顯示和隱藏效果 */
+
+.pp2content {
+    display: none;
+    /* margin-top: 20px; */
+}
+
+.pp2content>div {
+    border-bottom: 1px lightgray solid;
+    margin: 10vh 0 0 0;
+}
+
+.pp2tabGroup>.pp2show {
+    color: #5E5039;
+    font-weight: bold;
+}
+
+.pp2contentArea>.pp2show {
+    display: block;
+}
+
+.pp2content>h3 {
+    font-weight: bold;
+}
+
+
+/* Product Page section 3 */
+.pp3 {
+    margin: 60px 80px;
+    transition: all 0.3s ease-in-out;
+}
+
+.pp3title {
+    border-bottom: 1px #5E5039 solid;
+}
+
+.pp3title>h5 {
+    padding: 15px 15px 15px 0;
+    font-size: large;
+    font-weight: bold;
+    color: #5E5039;
+}
+
+.pp3CardGroup {
+    display: flex;
+    justify-content: start;
+    /* 自動換行以適應不同螢幕寬度  */
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 10vh 0 0 0;
+
+}
+
+.pp3Card {
+    display: flex;
+    flex-direction: column;
+    /* 讓內容垂直分散對齊 */
+    justify-content: space-between;
+    align-items: center;
+    /* transition: transform 0.3s ease; */
+}
+
+.pp3Card:hover {
+    transform: scale(1.05);
+}
+
+.pp3Card>a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* 調整卡片內容 */
+.pp3Cardimg {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pp3Cardimg:hover {
+    box-shadow: 2px 2px 4px gray;
+
+}
+
+/* 小螢幕排版調整 */
+@media (max-width:500px) {
+    .pp3CardGroup {
+        justify-content: center;
+    }
+}
+
+/* 購物車 */
+/* 購物車 */
+/* 購物車 */
+
+.cart-container {
+    width: 80%;
+    margin: 20px auto;
+    margin-top: 10vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container>h2 {
+    margin: 20px 0;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.cart-item {
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item>img {
+    width: 15%;
+    /* height: 80px; */
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.item-details>p {
+    font-weight: 600;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.quantity-control>button {
+    width: 25px;
+    height: 25px;
+    background: #B2A994;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-control>input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: inset 1px 1px 3px 1px lightgray;
+    padding: 5px;
+}
+
+.remove-item {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.cart-summary>p {
+    margin-top: 20px;
+}
+
+.checkout {
+    background: #B2A994;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #5E5039;
+    text-decoration: none;
+}
+
+/* 小螢幕排版 */
+@media screen and (max-width:650px) {
+
+    .decrease,
+    .increase {
+        display: none;
+    }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Comic+Neue&display=swap" -->
+    <!-- font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+</head>
+
+<body>
+    <header id="header"></header>
+
+
+    <!-- section 1 -->
+
+    <div class="hp1SlideContainer" id="slider">
+        <div class="slide active-slide">
+            <img src="./img/2. 轉檔圖片/宣傳圖 (2).png">
+        </div>
+        <div class="slide">
+            <img src="./img/2. 轉檔圖片/宣傳圖 (8).png">
+        </div>
+        <div class="slide">
+            <img src="./img/2. 轉檔圖片/宣傳圖 (12).png">
+        </div>
+        <div class="dots">
+            <span><i class="fa-solid fa-window-minimize fa-2x dot" onclick="setSlide(0)"></i></span>
+            <span><i class="fa-solid fa-window-minimize fa-2x dot" onclick="setSlide(1)"></i></span>
+            <span><i class="fa-solid fa-window-minimize fa-2x dot" onclick="setSlide(2)"></i></span>
+        </div>
+    </div>
+
+
+
+    <!-- section 2 -->
+    <div class="hp2 scroll">
+        <div class="hp2Container">
+
+            <div class="hp2Title">
+                <h5>Best & New <br>Promotion</h5>
+            </div>
+
+            <div class="hp2CardGroup">
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (1).png">
+                    <h5 class="hp2Product"> 積雪草彈潤修護乳</h5>
+                    <h5 class="hp2Price">$880</h5>
+                </div>
+
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (2).png">
+                    <h5 class="hp2Product"> 綠茶修復精華霜</h5>
+                    <h5 class="hp2Price">$980</h5>
+                </div>
+
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (3).png">
+                    <h5 class="hp2Product"> 心葉球瞬效修復精華霜</h5>
+                    <h5 class="hp2Price">$980</h5>
+                </div>
+
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (4).png">
+                    <h5 class="hp2Product"> 10% 維他命B3調理精華 30ML</h5>
+                    <h5 class="hp2Price">$780</h5>
+                </div>
+
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (5).png">
+                    <h5 class="hp2Product"> 5%杏仁酸淨化精華</h5>
+                    <h5 class="hp2Price">$750</h5>
+                </div>
+
+                <div class="hp2Card" onclick="toProductPage()">
+                    <img class="hp2Cardimg " src="./img/2. 轉檔圖片/產品圖 (6).png">
+                    <h5 class="hp2Product"> 玻尿酸澎潤保濕精華</h5>
+                    <h5 class="hp2Price">$780</h5>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- section 3 -->
+    <div class="hp3 scroll" id="about">
+
+        <div><img class="hp3img" src="./img/2. 轉檔圖片/形象圖.png"></div>
+
+        <div class="hp3ContentContainer">
+            <h2 class="hp3Title" id="aboutUs">About Us</h2>
+            <h3>純粹之美，源於自然</h3>
+            <h5 class="hp3Content">在
+                DIDn，我們相信肌膚的美麗來自於純淨、溫和與科學的完美平衡。我們專注於研發高效植萃護膚品，萃取大自然中最珍貴的成分，搭配先進的護膚科技，為您帶來純粹無負擔的保養體驗。</h5>
+            <button class="hp3btn">Read More</button>
+        </div>
+
+    </div>
+
+    <!-- To Top -->
+    <div class="totop">
+        <a href="#">
+            <i class="fa-solid fa-circle-arrow-up fa-3x"></i>
+        </a>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer"></footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
